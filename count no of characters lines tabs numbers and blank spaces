@@ -1,0 +1,42 @@
+Main.c file
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+   FILE *fp;
+   char ch, fname[30];
+   int noOfChar=0, noOfSpace=0, noOfTab=0, noOfNewline=0, noOfDigits=0;
+   printf("Enter file name with extension: ");
+   gets(fname);
+   fp = fopen(fname, "r");
+   while(fp)
+   {
+      ch = fgetc(fp);
+      if(ch==EOF)
+         break;
+      noOfChar++;
+      if(ch==' ')
+         noOfSpace++;
+      if(ch=='\t')
+         noOfTab++;
+      if(ch=='\n')
+         noOfNewline++;
+      if(ch>='0' && ch<='9')
+         noOfDigits++;
+   }
+   fclose(fp);
+   printf("\nNumber of characters = %d", noOfChar);
+   printf("\nNumber of spaces = %d", noOfSpace);
+   printf("\nNumber of tabs = %d", noOfTab);
+   printf("\nNumber of newline = %d", noOfNewline);
+   printf("\nNumber of digits = %d", noOfDigits);
+   getch();
+   return 0;
+}
+
+Txt.txt file
+
+HELLO I AM PURVA.
+i am studying in RAIT.
+7003.
