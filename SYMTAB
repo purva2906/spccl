@@ -1,0 +1,23 @@
+code = [
+["START", "200"],
+["MOVE", "ARG", '="4"'],
+["MOVE", "BRG", '="3"'],
+["ADD", "ARG", "Y"],
+["MUL", "BRG", "X"],
+["LTORG"],
+["DB", 'X', "05H"],
+["DB", "Y", "05Z"],
+["END"],
+]
+idx = 0
+sttt = {}
+counter = 0
+if "START" in code[0][0]:
+    counter = int(code[0][1])
+for prog in code:
+    counter += 1
+    for mnemonic in prog:
+        if "DB" in mnemonic:
+            sttt[prog[1]] = counter
+
+print(sttt)
